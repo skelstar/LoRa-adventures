@@ -93,13 +93,13 @@ void onReceive(int packetSize)
 void setup()
 {
   Serial.begin(115200); // initialize serial
-  while (!Serial)
-    ;
+  while (!Serial);
 
   Serial.println("LoRa Duplex");
 
   // override the default CS, reset, and IRQ pins (optional)
   LoRa.setPins(csPin, resetPin, irqPin); // set CS, reset, IRQ pin
+  LoRa.enableCrc();
 
   if (!LoRa.begin(433E6))
   { // initialize ratio at 915 MHz
